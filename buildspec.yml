@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18  # Use the Node.js version suitable for your app
+    commands:
+      - echo Installing dependencies...
+      - npm install
+
+  build:
+    commands:
+      - echo Building the application...
+      - npm run build || echo "No build step defined"
+
+  post_build:
+    commands:
+      - echo Build completed!
+      - echo Preparing deployment artifacts...
+      - zip -r deploy.zip . -x "*.git/*"  # Package the app excluding .git folder
+      - echo Uploading artifacts completed.
+
+artifacts:
+  files:
+    - deploy.zip
+  discard-paths: yes
