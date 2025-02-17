@@ -1,0 +1,12 @@
+{
+  "name": "aws-cicd-demo",
+  "version": "1.0.0",
+  "description": "Node.js web app for AWS CI/CD",
+  "main": "server.js",
+  "scripts": {
+    "start": "node app/server.js"
+  },
+  "dependencies": {
+    "http": "^0.0.1"
+  }
+}
